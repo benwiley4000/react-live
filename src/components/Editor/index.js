@@ -235,6 +235,8 @@ class Editor extends Component {
       contentEditable,
       className,
       style,
+      showLineNumbers,
+      highlightLines,
       code, // ignored & unused
       ignoreTabKey, // ignored & unused
       language, // ignored & unused
@@ -246,7 +248,8 @@ class Editor extends Component {
       <pre
         {...rest}
         ref={this.onRef}
-        className={cn('prism-code', className)}
+        className={cn('prism-code', showLineNumbers && 'line-numbers', className)}
+        data-line={highlightLines}
         style={style}
         spellCheck="false"
         contentEditable={contentEditable}

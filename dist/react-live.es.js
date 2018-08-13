@@ -3,6 +3,8 @@ import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-jsx';
+import 'prismjs/plugins/line-numbers/prism-line-numbers';
+import 'prismjs/plugins/line-highlight/prism-line-highlight';
 import unescape from 'unescape';
 import iterator from 'dom-iterator';
 import React, { Component } from 'react';
@@ -422,16 +424,19 @@ var Editor = function (_Component) {
         contentEditable = _props.contentEditable,
         className = _props.className,
         style = _props.style,
+        showLineNumbers = _props.showLineNumbers,
+        highlightLines = _props.highlightLines,
         code = _props.code,
         ignoreTabKey = _props.ignoreTabKey,
         language = _props.language,
-        rest = objectWithoutProperties(_props, ['contentEditable', 'className', 'style', 'code', 'ignoreTabKey', 'language']);
+        rest = objectWithoutProperties(_props, ['contentEditable', 'className', 'style', 'showLineNumbers', 'highlightLines', 'code', 'ignoreTabKey', 'language']);
     var html = this.state.html;
 
 
     return React.createElement('pre', _extends({}, rest, {
       ref: this.onRef,
-      className: cn('prism-code', className),
+      className: cn('prism-code', showLineNumbers && 'line-numbers', className),
+      'data-line': highlightLines,
       style: style,
       spellCheck: 'false',
       contentEditable: contentEditable,
