@@ -431,20 +431,23 @@ var Editor = function (_Component) {
     var html = this.state.html;
 
 
-    return React__default.createElement('pre', _extends({}, rest, {
-      ref: this.onRef,
-      className: cn('prism-code', showLineNumbers && 'line-numbers', className),
-      'data-line': highlightLines,
-      style: style,
-      spellCheck: 'false',
-      contentEditable: contentEditable,
-      onCompositionEnd: contentEditable ? this.onCompositionEnd : undefined,
-      onCompositionStart: contentEditable ? this.onCompositionStart : undefined,
-      onKeyDown: contentEditable ? this.onKeyDown : undefined,
-      onKeyUp: contentEditable ? this.onKeyUp : undefined,
-      onClick: contentEditable ? this.onClick : undefined,
-      dangerouslySetInnerHTML: { __html: html }
-    }));
+    return React__default.createElement(
+      'pre',
+      _extends({}, rest, {
+        ref: this.onRef,
+        className: cn('prism-code', showLineNumbers && 'line-numbers', className),
+        'data-line': highlightLines,
+        style: style,
+        spellCheck: 'false',
+        contentEditable: contentEditable,
+        onCompositionEnd: contentEditable ? this.onCompositionEnd : undefined,
+        onCompositionStart: contentEditable ? this.onCompositionStart : undefined,
+        onKeyDown: contentEditable ? this.onKeyDown : undefined,
+        onKeyUp: contentEditable ? this.onKeyUp : undefined,
+        onClick: contentEditable ? this.onClick : undefined
+      }),
+      React__default.createElement('code', { dangerouslySetInnerHTML: { __html: html } })
+    );
   };
 
   return Editor;

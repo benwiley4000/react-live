@@ -258,8 +258,9 @@ class Editor extends Component {
         onKeyDown={contentEditable ? this.onKeyDown : undefined}
         onKeyUp={contentEditable ? this.onKeyUp : undefined}
         onClick={contentEditable ? this.onClick : undefined}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      >
+        <code dangerouslySetInnerHTML={{ __html: html }} />
+      </pre>
     )
   }
 }
